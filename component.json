@@ -1,0 +1,8 @@
+{
+  "name": "element-css",
+  "repo": "enricomarino/element-css",
+  "description": "Element CSS component",
+  "version": "0.0.1",
+  "dependencies": {},
+  "scripts": ["index.js"]
+}
