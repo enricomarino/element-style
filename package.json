@@ -1,0 +1,22 @@
+{
+  "name": "element-css",
+  "author": {
+    "name": "Enrico Marino",
+    "url": "http://onirame.com"
+  },
+  "description": "Element CSS component",
+  "homepage": "https://github.com/enricomarino/element-css",
+  "keywords": [],
+  "contributors": [],
+  "dependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/enricomarino/element-css.git"
+  },
+  "main": "index.js",
+  "version": "0.0.1",
+  "devDependencies": {},
+  "engines": {
+    "node": "*"
+  }
+}
