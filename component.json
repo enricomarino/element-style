@@ -1,7 +1,7 @@
 {
-  "name": "element-css",
-  "repo": "enricomarino/element-css",
-  "description": "Element CSS component",
+  "name": "element-style",
+  "repo": "enricomarino/element-style",
+  "description": "style plugin for element",
   "version": "0.0.1",
   "dependencies": {},
   "scripts": ["index.js"]
