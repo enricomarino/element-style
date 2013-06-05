@@ -1,45 +1,102 @@
 /**
- * element-css
- * Element CSS component
+ * element-style
+ * style plugin for element
  * 
  * @copyright 2013 Enrico Marino
  * @license MIT
  */
 
 /**
- * Properties to ignore appending "px".
+ * Expose `style`
  */
 
-var ignore = {
-  columnCount: true,
-  fillOpacity: true,
-  fontWeight: true,
-  lineHeight: true,
-  opacity: true,
-  orphans: true,
-  widows: true,
-  zIndex: true,
-  zoom: true
-};
+module.exports = style;
 
 /**
- * css
- * Set css
- * 
- * @param {Object} obj CSS properties
- * @return {Style} this for chaining
+ * style
  */
 
-exports.css = function (obj) {
-  var el = this.el;
-  var key;
-  var val;
-  for (key in obj) {
-    val = obj[key];
-    if ('number' == typeof val && !ignore[key]) {
-      val += 'px';
+function style (element) {
+
+  /**
+   * Properties to ignore appending "px".
+   */
+  
+  var ignore = {
+    columnCount: true,
+    fillOpacity: true,
+    fontWeight: true,
+    lineHeight: true,
+    opacity: true,
+    orphans: true,
+    widows: true,
+    zIndex: true,
+    zoom: true
+  };
+  
+  /**
+   * style
+   * get/set style
+   * 
+   * @param {String|Object} obj CSS properties
+   * @return {Style} this for chaining
+   */
+  
+  element.prototype.style = function (obj) {
+    if (1 === arguments.length) {
+      if ("string" typeof obj) {
+        return this.get_style(obj);
+      }
+      return this.set_style_all(obj);
     }
-    el.style[key] = val;
-  }
-  return this;
-};
+    return this.set_style(obj, arguments[1]);
+  };
+
+  /**
+   * get_style
+   * get style.
+   * 
+   * @param {String} key key
+   * @return {String} style
+   * @api public
+   */
+  
+  element.prototype.get_style = function (key) {
+    return this.el.style[key];
+  };
+
+  /**
+   * set_style
+   * set style
+   * 
+   * @param {String} key key
+   * @return {String} style
+   * @api public
+   */
+  
+  element.prototype.set_style = function (key, value) {
+    if ('number' == typeof val && !ignore[key]) {
+      value += 'px';
+    }
+    this.el.style[key] = value;
+    return this;
+  };
+  
+  /**
+   * set_style_all
+   * set style all
+   * 
+   * @param {Object} obj CSS properties
+   * @return {Style} this for chaining
+   */
+  
+  element.prototype.set_style_all = function (obj) {
+    var key;
+    for (key in obj) {
+      this.set_style(key, obj[key]);
+    }
+    return this;
+  };
+
+  return element;
+}
