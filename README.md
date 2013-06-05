@@ -1,10 +1,18 @@
-# element-css
+# element-style
 
-Element CSS component
+style plugin for element
 
 ## Installation
 
     $ component install enricomarino/element-css
+
+## API
+
+### element#style(obj:Object):element
+
+### element#get_style(key:String, value:String|Number):String
+
+### element#set_style(key:String, value:String|Number):element
 
 ## License
 
