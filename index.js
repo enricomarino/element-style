@@ -44,7 +44,7 @@ function style (element) {
   
   element.prototype.style = function (obj) {
     if (1 === arguments.length) {
-      if ("string" typeof obj) {
+      if (typeof obj === "string") {
         return this.get_style(obj);
       }
       return this.set_style_all(obj);
@@ -75,7 +75,7 @@ function style (element) {
    */
   
   element.prototype.set_style = function (key, value) {
-    if ('number' == typeof val && !ignore[key]) {
+    if (typeof val === 'number' && !ignore[key]) {
       value += 'px';
     }
     this.el.style[key] = value;
