@@ -4,7 +4,7 @@ style plugin for element
 
 ## Installation
 
-    $ component install enricomarino/element-css
+    $ component install enricomarino/element-style
 
 ## API
 
